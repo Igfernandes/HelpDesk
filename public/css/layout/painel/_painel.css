@@ -1,0 +1,47 @@
+
+/**
+* MENU
+**/
+.painel nav ul{
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    margin: 3% 0;
+}
+.painel nav ul li{
+    width: 25%;
+}
+.painel nav ul li a{
+    display: block;
+    width: 20%;
+    box-shadow: 0 0 6px #aaaaaa;
+    padding: 6%;
+    margin: 0 auto;
+    transition: background .3s ease-in-out;
+}
+.painel nav ul li a svg{
+    color: #c50d31;
+    transition: color .3s ease-in-out;
+}
+.painel nav ul li a:hover{
+    background: #c50d31;
+}
+.painel nav ul li a:hover svg{
+    color: #fff;
+}
+
+/**
+* RESPONSIVE
+**/
+
+
+@media screen and (max-width: 550px) {
+
+    .painel nav ul{
+        padding: 0;
+    }
+    .painel nav ul li a{
+        width: 55%;
+        margin: 0 auto;
+    }
+}

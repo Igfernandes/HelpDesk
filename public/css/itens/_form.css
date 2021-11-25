@@ -1,0 +1,119 @@
+.form-content{
+    max-width: 700px;
+    padding: 16px;
+    border: 3px dashed black;
+    box-shadow: 0 0 4px #b0b0b0;
+    margin: 2rem auto 1rem;
+}
+.form-content form .form-title{
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+.form-content form .form-title h3{
+    font-weight: 800;
+    color: #c50c31;
+}
+.form-content form .form-row,
+.form-content form .form-select{
+    display: flex;
+    margin: 0rem 0 2rem;
+}
+.form-content form .form-select{
+    margin: 0rem 0 1rem;
+}
+.form-content form .form-row .form-col{
+    position: relative;
+    padding: 0 2%;
+}
+.form-content form .form-row .form-col input{
+    height: 35px;
+    color: #3f3f3f;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 6px;
+    border: 1px solid #003157;
+}
+.form-content form .form-row .form-col input[type="date"]{
+    font-size: 1rem;
+    padding: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.form-content form .form-row .form-col textarea{
+    color: #3f3f3f;
+    padding: 8px;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+.form-content form .form-row .form-col label{
+    color: #3f3f3f;
+    position: absolute;
+    left: 23px;
+    top: 11px;
+    font-weight: 700;
+    transition: top .2s ease-in-out;
+    -o-transition: top .2s ease-in-out;
+    -moz-transition: top .2s ease-in-out;
+    -webkit-transition: top .2s ease-in-out;
+}
+.form-content form .form-row .form-col input:focus ~ label, .form-content form .form-row .form-col input:not(:placeholder-shown) ~ label{
+    top: -20px;
+    font-size: .8rem;
+}
+
+.form-content form .form-row .form-col textarea{
+    width: 100%;
+    box-sizing: border-box;
+}
+.form-content form .form-select .form-col{
+    padding: 0 2%;
+}
+.form-content form .form-select select{
+    width: 100%;
+    height: 40px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 0 9px;
+}
+.form-content form .form-btn{
+    text-align: end;
+    padding-right: 15px;
+    margin: 1.5rem 0 1rem;
+}
+.form-content form .form-btn button{
+    font-weight: 600;
+}
+
+/**
+* RESPONSIVE
+**/
+
+
+@media screen and (max-width: 550px) {
+    .form-content{
+        width: 85%;
+    }
+    .form-content form .form-row .form-col input, 
+    .form-content form .form-row .form-col label,
+    .form-content form .form-select select,
+    .form-content form .form-row .form-col input[type="date"],
+    .form-content form .form-row .form-col textarea{
+        font-size: .9rem;
+    }
+    
+}
+@media screen and (max-width: 370px) {
+
+    .form-content form .form-title h3{
+        font-size: .9rem;
+    }
+
+    .form-content form .form-row .form-col input, 
+    .form-content form .form-row .form-col label,
+    .form-content form .form-select select,
+    .form-content form .form-row .form-col input[type="date"],
+    .form-content form .form-row .form-col textarea{
+        font-size: .7rem;
+    }
+    
+}

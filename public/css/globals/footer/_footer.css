@@ -1,0 +1,10 @@
+.copyright{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+}
+.copyright p{
+    font-family: system-ui;
+    font-weight: 700;
+}

@@ -1,0 +1,32 @@
+.btn-tp-1{
+    color: var(--btn-red);
+    padding: 8px 24px;
+    box-shadow: 0 0 3px #7b7b7b;
+    border-radius: 0.2rem;
+    transition: transform .3s ease-in-out;
+    -o-transition: transform .3s ease-in-out;
+    -moz-transition: transform .3s ease-in-out;
+    -webkit-transition: transform .3s ease-in-out;
+}
+.btn-tp-2{
+    background: var(--btn-red-50);
+    color: #103f62;
+    text-transform: uppercase;
+    font-weight: 800;
+    padding: 0.7rem 3rem;
+    box-shadow: 0 0 3px #9a9494;
+}
+
+button:active{
+    transform: scale(.8);
+}
+
+/**
+* RESPONSIVE
+**/
+
+@media screen and (max-width: 550px) {
+    .btn-tp-2{
+        padding: 0.5rem 2rem;
+    }
+}

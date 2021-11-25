@@ -1,0 +1,29 @@
+:root{
+
+    /**
+    * COLORS
+    **/
+    --primary-color: #103f62;
+    --secundary: #ca405c;
+
+    --btn-red: #a05d5d;
+    --btn-red-50: #eed7d7;
+
+
+    /**
+    * BREAKPOINTS
+    **/
+    --bk-xs: 370px;
+    --bk-sm: 550px;
+    --bk-md: 800px; 
+    --bk-lg: 1024px;
+    --bk-xl: 1240px;
+    --bk-xxl: 1550px;
+
+
+    /**
+    * GRID
+    */
+
+    --content-grid: 1240px;
+}

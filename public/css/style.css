@@ -1,0 +1,36 @@
+/**
+* CONFIGS
+**/
+@import './settings/_vars.css';
+@import './settings/_tags.css';
+
+/**
+* ITENS
+**/
+@import './itens/_button.css';
+@import './itens/_table.css';
+@import './itens/_form.css';
+@import './itens/_notify.css';
+
+/**
+* GLOBALS
+**/
+
+@import './globals/header/_header.css';
+@import './globals/footer/_footer.css';
+
+
+/**
+* LAYOUT
+**/ 
+
+@import './layout/login/_login.css';
+
+@import './layout/painel/_painel.css';
+
+
+/**
+* RESPONSIVE
+**/
+
+@import './globals/header/_responsive.css';

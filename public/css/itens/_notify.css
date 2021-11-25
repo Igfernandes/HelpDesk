@@ -1,0 +1,67 @@
+notify{
+    position: fixed;
+    top: -10vh;
+    width: 100%;
+    text-align: center;
+    transition: top .3s ease-in-out;
+    -o-transition: top .3s ease-in-out;
+    -moz-transition: top .3s ease-in-out;
+    -webkit-transition: top .3s ease-in-out;
+}
+notify .text{
+    width: 20%;
+    color: #fff;
+    font-size: 1.5rem;
+    opacity: 0;
+    padding: 2rem;
+    border-radius: 2rem 0;
+    box-shadow: 0 0 6px;
+    margin: 0 auto;
+    transform: translateY(-5vh);
+    -o-transform: translateY(-5vh);
+    -moz-transform:  translateY(-5vh);
+    -webkit-transform:  translateY(-5vh);
+    transition: opacity .3s ease-in-out;
+    -o-transition: opacity .3s ease-in-out;
+    -moz-transition: opacity .3s ease-in-out;;
+    -webkit-transition: opacity .3s ease-in-out;;
+
+}
+
+notify.sucess{
+    top: 8vh;
+}
+
+notify.sucess .text{
+    background: #18a318;
+    opacity: 1;
+}
+notify.failed .text{
+    background: #18a318;
+    opacity: 1;
+}
+
+/**
+* RESPONSIVE
+**/
+
+@media screen and (max-width: 1240px) {
+    notify{
+        top: -20vh;
+    }
+    notify .text{
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 1020px) {
+    notify .text{
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    notify .text{
+        width: 80%;
+    }
+}
