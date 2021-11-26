@@ -1,5 +1,13 @@
+<?php 
 
-<?php require './header.php'; ?>
+    require './header.php'; 
+
+    /**
+     * OPEN ARCHIVE
+     */
+    $archive = fopen("./services/register/data/data.hd", 'r') or die("Unable to open file!");
+
+?>
 
 
 
@@ -31,22 +39,24 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php if(isset($_SESSION['rgt'])): 
-                                    foreach($_SESSION['rgt'] as $index => $value):
+                            <?php   while(!feof($archive)):
+                                        $line = fgets($archive);
+                                        if(!empty($line)): 
+                                        
                                 ?>
                             <tr>
-                                <td><input type="radio" name="registros" value="<?= $index ?>"></td>
-                                <td><?= $value['nome'] ?></td>
+                                <td><input type="radio" name="registros" value="<?php echo search($line, "#", "id") ?>"></td>
+                                <td><?php echo search($line, "#", "nome") ?></td>
                                 <td><?php 
-                                    $data = explode("-", $value['data']);
+                                    $data = explode("-", search($line, "#", "data"));
                                     echo $data[2]."/".$data[1]."/".$data[0];
                                 ?></td>
-                                <td><?= substr($value['descricao']['text'], 0, 43)."..." ?></td>
-                                <td class="<?= strtolower($value['status']) ?>"><?= $value['status'] ?></td>
+                                <td><?php echo substr(search($line, "#", "descricao")[0], 0, 43)."..." ?></td>
+                                <td class="<?= strtolower(search($line, "#", "status")) ?>"><?php echo search($line, "#", "status") ?></td>
                             </tr>
                             <?php 
-                                    endforeach;
-                                endif;
+                                    endif;
+                                endwhile;
                                 ?>
                         </tbody>
                         <tfoot>
@@ -63,4 +73,8 @@
 
 
 
-<?php require './footer.php'; ?>
+<?php
+    fclose($archive);
+
+    require './footer.php'; 
+?>
