@@ -2,7 +2,7 @@
 # Desenvolvedor: Igor Fernandes
 
 <pre>
-- A produção de um gerenciador de tarefas utilizando apenas sessões do servidor para armazenar os dados inseridos no projeto. 
+- A produção de um gerenciador de tarefas utilizando apenas manipulação de arquivos para armazenar os dados inseridos no projeto. 
 </pre>
 
 
