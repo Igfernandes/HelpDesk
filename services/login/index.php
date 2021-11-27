@@ -7,6 +7,10 @@ if(isset($_POST['login']) && !$_POST['validation']){
 }
 
 if(isset($_POST['conect'])){
+
+    /**
+     * @Action      Validador de acesso, com o objetivo de verificar e gerar log.
+     */
     $validate = 0;
 
     $log = fopen("./register/log/error_log", 'a') or die("Unable to open file!");
@@ -28,7 +32,7 @@ if(isset($_POST['conect'])){
         if($validate == 1){
             $_SESSION['status'] = 1;
         }else{
-            $text = "\n[".date(DATE_RFC822)."]: $er";
+            $text = "\n[".date(DATE_RFC822)."]: As credenciais inválidas. Email".$acess['email']." password:".$acess['password'];
             fwrite($log, $text);
         }
 

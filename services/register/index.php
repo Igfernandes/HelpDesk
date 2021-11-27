@@ -70,6 +70,7 @@ if(isset($_POST['save'])){
         fwrite($log, $text);
     }
 
+    //Escreve dentro do arquivo e pula uma linha utilizando as barras referentes ao sistema.
     fwrite($archive, $dados.PHP_EOL);
     fclose($archive);
     fclose($log);
@@ -87,6 +88,10 @@ if(isset($_POST['update'])){
       
          /**
          * COUNT LINES
+         * 
+         * - Retorna as linhas e analisa até encontrar a remetente a modificação.
+         * - Realoca as linhas dentro de de uma variável que irá inserir novamente dentro do document, mas agora modificando a linha encontrada
+         * - Quando encontra a linha, verifica as mudanças e caso haja alguma altera, caso não só adiciona os itens.
          */
         $count = 1; $dados = "->"; $infos = array();
 
@@ -103,8 +108,8 @@ if(isset($_POST['update'])){
                         $itens = explode("@", $value);
                         if(!isset($itens[3])){
                             $dados .= "#$index:$value@".$_POST['resposta']."@".date(DATE_RFC822);
-                        }else{
-                            $dados .= "#$index:$itens[1]@$itens[2]@".$_POST['resposta']."@".date(DATE_RFC822);    
+                        }else if(!isset($_POST['respost']) || empty($_POST['respost'])){
+                            $dados .= "#$index:$itens[1]@$itens[2]";    
                         }
                     }else if(isset($_POST['status']) && $index == "status"){
                         $dados .= "#$index:".$_POST['status'];
