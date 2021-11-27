@@ -24,7 +24,7 @@
                 <div class="form-content">
                     <form action="./services/autoload.php" method="POST">
                         <div class="form-title">
-                            <h3>OCORRÊNCIA DE <?php echo search($line, "#", "nome") ?></h3>
+                            <h3>OCORRÊNCIA DE <?php $name = explode(" ", strtoupper(search($line, "#", "nome"))); echo $name[0]." ".substr($name[1], 0, 1)."." ?></h3>
                         </div>
                         <div class="form-row">
                             <div class="form-col w-6">
