@@ -39,7 +39,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php   while(!feof($archive)):
+                            <?php   
+                                $cout  = 0;
+                                while(!feof($archive)):
                                         $line = fgets($archive);
                                         if(!empty($line)): 
                                         
@@ -54,14 +56,15 @@
                                 <td><?php echo substr(search($line, "#", "descricao")[0], 0, 43)."..." ?></td>
                                 <td class="<?= strtolower(search($line, "#", "status")) ?>"><?php echo search($line, "#", "status") ?></td>
                             </tr>
-                            <?php 
+                            <?php   
+                                        $cout++;
                                     endif;
                                 endwhile;
                                 ?>
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td colspan="5">Total de Ocorrências: <?php if(isset($_SESSION['rgt'])) echo count($_SESSION['rgt']); else echo 0; ?></td>
+                                <td colspan="5">Total de Ocorrências: <?php if(isset($cout)) echo $cout; ?></td>
                             </tr>
                         </tfoot>
                     </table>
