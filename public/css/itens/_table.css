@@ -2,8 +2,9 @@
 * TABLE
 **/
 .table-content{
-    height: 60vh;
+    max-height: 40vh;
     overflow-y: scroll;
+    border-bottom: 2px solid #003257;
 }
 .table-content::-webkit-scrollbar{
     display: none;
@@ -12,22 +13,16 @@
     width: 100%;
     border-spacing: inherit;
 }
-.table-content table thead{
-    background: #003257;
-    color: #fff;
-}
-.table-content table thead tr th{
-    padding: 1rem 0;
-}
-.table-content table thead tr th:nth-of-type(1),
-.table-content table thead tr th:nth-of-type(3){
+
+.table-content table tr td:nth-of-type(1),
+.table-content table tr td:nth-of-type(3){
     width: 10%;
 }
-.table-content table thead tr th:nth-of-type(4){
+.table-content table tr td:nth-of-type(4){
     width: 30%;
 }
-.table-content table thead tr th:nth-of-type(2),
-.table-content table thead tr th:nth-of-type(5){
+.table-content table tr td:nth-of-type(2),
+.table-content table tr td:nth-of-type(5){
     width: 25%;
 }
 .table-content table tr td{

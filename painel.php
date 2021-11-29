@@ -27,47 +27,49 @@
                         </ul>
                     </nav>
                 </div>
-                <div class="table-content">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>NOME</th>
-                                <th>DATA</th>
-                                <th>PREVIEW</th>
-                                <th>ANDAMENTO</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php   
-                                $cout  = 0;
-                                while(!feof($archive)):
-                                        $line = fgets($archive);
-                                        if(!empty($line)): 
-                                        
-                                ?>
-                            <tr>
-                                <td><input type="radio" name="registros" value="<?php echo search($line, "#", "id") ?>"></td>
-                                <td><?php echo search($line, "#", "nome") ?></td>
-                                <td><?php 
-                                    $data = explode("-", search($line, "#", "data"));
-                                    echo $data[2]."/".$data[1]."/".$data[0];
-                                ?></td>
-                                <td><?php echo substr(search($line, "#", "descricao")[0], 0, 43)."..." ?></td>
-                                <td class="<?= strtolower(search($line, "#", "status")) ?>"><?php echo search($line, "#", "status") ?></td>
-                            </tr>
-                            <?php   
-                                        $cout++;
-                                    endif;
-                                endwhile;
-                                ?>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td colspan="5">Total de Ocorrências: <?php if(isset($cout)) echo $cout; ?></td>
-                            </tr>
-                        </tfoot>
-                    </table>
+                <div class="table">
+                    <div class="table-header">
+                        <ul>
+                            <li></li>
+                            <li>NOME</li>
+                            <li>DATA</li>
+                            <li>PREVIEW</li>
+                            <li>ANDAMENTO</li>
+                        </ul>
+                    </div>
+                    <div class="table-content">
+                        <table>
+                            <tbody>
+                                <?php   
+                                    $cout  = 0;
+                                    while(!feof($archive)):
+                                            $line = fgets($archive);
+                                            if(!empty($line)): 
+                                            
+                                    ?>
+                                <tr>
+                                    <td><input type="radio" name="registros" value="<?php echo search($line, "#", "id") ?>"></td>
+                                    <td><?php echo search($line, "#", "nome") ?></td>
+                                    <td><?php 
+                                        $data = explode("-", search($line, "#", "data"));
+                                        echo $data[2]."/".$data[1]."/".$data[0];
+                                    ?></td>
+                                    <td><?php echo substr(search($line, "#", "descricao")[0], 0, 43)."..." ?></td>
+                                    <td class="<?= strtolower(search($line, "#", "status")) ?>"><?php echo search($line, "#", "status") ?></td>
+                                </tr>
+                                <?php   
+                                            $cout++;
+                                        endif;
+                                    endwhile;
+                                    ?>
+                            </tbody>
+                        </table>
+                    </div>                 
+                    <div class="table-footer">
+                        <div class="total">
+                            <p>Total de Ocorrências: <?php if(isset($cout)) echo $cout; ?></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

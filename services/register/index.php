@@ -98,21 +98,22 @@ if(isset($_POST['update'])){
         while(!feof($archive)){
 
             $line = fgets($archive);
-
-            if($count == $_POST['update'] && strstr($line, "->")){
-
+            
+            if($count == $_POST['update'] && strstr($line, '->') !==  false){
+      
                 $info =  search($line, "#", "");
                 foreach($info as $index => $value){
                     
                     if($index == "descricao"){
                         $itens = explode("@", $value);
-                        if(!isset($itens[3])){
+                        if(isset($_POST['resposta']) && !empty($_POST['resposta']) && !isset($itens[2]) || !empty($itens[2])){
                             $dados .= "#$index:$value@".$_POST['resposta']."@".date(DATE_RFC822);
                         }else if(!isset($_POST['respost']) || empty($_POST['respost'])){
-                            $dados .= "#$index:$itens[1]@$itens[2]";    
+                            $dados .= "#$index:$itens[0]@$itens[1]";  
                         }
                     }else if(isset($_POST['status']) && $index == "status"){
                         $dados .= "#$index:".$_POST['status'];
+                       
                     }else{
                         $dados .= "#$index:$value";
                     }
@@ -123,16 +124,23 @@ if(isset($_POST['update'])){
                 array_push($infos, $line);
             }
             $count++;
-        }
+        }   
+
+        // var_dump($infos);
+        // var_dump($_POST);
+
         fclose($archive);
 
         $archive = fopen("./register/data/data.hd", 'w+') or die("Unable to open file!");
         foreach($infos as $lines){
-            if(!empty($lines))fwrite($archive, $lines);
+        
+            if(!empty($lines))fwrite($archive, str_replace(PHP_EOL, ' ', $lines).PHP_EOL);
         }
         
-        fclose($archive);
 
+
+        fclose($archive);
+     
         header("location: ../ocorrencia.php?status=sucess&id=".$_POST['update']);
     }catch(Exception $e){
         $text = "\n[".date(DATE_RFC822)."]: $er";
