@@ -106,10 +106,10 @@ if(isset($_POST['update'])){
                     
                     if($index == "descricao"){
                         $itens = explode("@", $value);
-                        if(isset($_POST['resposta']) && !empty($_POST['resposta']) && !isset($itens[2]) || !empty($itens[2])){
-                            $dados .= "#$index:$value@".$_POST['resposta']."@".date(DATE_RFC822);
+                        if(isset($_POST['resposta']) && !empty($_POST['resposta']) && !isset($itens[3]) || !empty($itens[3])){
+                            $dados .= "#$index:@$itens[1]@$itens[2]@".$_POST['resposta']."@".date(DATE_RFC822);
                         }else if(!isset($_POST['respost']) || empty($_POST['respost'])){
-                            $dados .= "#$index:$itens[0]@$itens[1]";  
+                            $dados .= "#$index:@$itens[1]@$itens[2]";  
                         }
                     }else if(isset($_POST['status']) && $index == "status"){
                         $dados .= "#$index:".$_POST['status'];
@@ -126,8 +126,8 @@ if(isset($_POST['update'])){
             $count++;
         }   
 
-        // var_dump($infos);
-        // var_dump($_POST);
+        var_dump($infos);
+        var_dump($_POST);
 
         fclose($archive);
 
@@ -137,7 +137,7 @@ if(isset($_POST['update'])){
             if(!empty($lines))fwrite($archive, str_replace(PHP_EOL, ' ', $lines).PHP_EOL);
         }
         
-
+            // exit();
 
         fclose($archive);
      
